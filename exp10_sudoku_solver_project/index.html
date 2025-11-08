@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sudoku Solver</h1>
+      <p class="subtitle">Using Backtracking Algorithm</p>
+
+      <div class="difficulty-selector">
+        <button class="difficulty-btn active" onclick="setDifficulty('easy', event)">Easy</button>
+        <button class="difficulty-btn" onclick="setDifficulty('medium', event)">Medium</button>
+        <button class="difficulty-btn" onclick="setDifficulty('hard', event)">Hard</button>
+        <button class="difficulty-btn" onclick="setDifficulty('expert', event)">Expert</button>
+      </div>
+
+      <div class="sudoku-grid" id="sudoku-grid"></div>
+
+      <div class="controls">
+        <button onclick="solveSudoku()">Solve Puzzle</button>
+        <button class="btn-clear" onclick="clearBoard()">Clear Board</button>
+        <button onclick="generatePuzzle()">Generate Puzzle</button>
+
+        <div class="file-upload">
+          <input type="file" id="sudoku-file" accept=".txt,.csv" onchange="handleFileUpload(event)" style="display:none" />
+          <button class="btn-upload" onclick="document.getElementById('sudoku-file').click()">Upload Puzzle</button>
+        </div>
+      </div>
+
+      <div class="status" id="status"></div>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value" id="puzzles-generated">0</div>
+          <div class="stat-label">Puzzles Generated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="puzzles-solved">0</div>
+          <div class="stat-label">Puzzles Solved</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="current-difficulty">Easy</div>
+          <div class="stat-label">Current Level</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h3>How to Use</h3>
+        <p>
+          A puzzle is automatically generated when the page loads. Upload puzzles as 9 lines with 9 numbers (0 = empty).
+        </p>
+      </div>
+    </div>
+
+    <div class="loader" id="loader"><div class="spinner"></div></div>
+    <script src="script.js"></script>
+  </body>
+</html>
